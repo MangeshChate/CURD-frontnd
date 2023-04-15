@@ -30,7 +30,7 @@ export default function Curd() {
         event.preventDefault();
 
         try {
-            const response = await axios.post('http://localhost:3400/api/post', { name, email });
+            const response = await axios.post('curd-backend-production.up.railway.app/api/post', { name, email });
             console.log(response.data);
             setName('');
             setEmail('');
@@ -44,7 +44,7 @@ export default function Curd() {
     //get a data 
     const getData = async () => {
         try {
-            const responce = await axios.get('http://localhost:3400/api/get')
+            const responce = await axios.get('curd-backend-production.up.railway.app/api/get')
             setApiData(responce.data)
         } catch (err) {
             console.log(err)
@@ -56,7 +56,7 @@ export default function Curd() {
     const handleDelete = async (id) => {
 
         try {
-            await axios.delete(`http://localhost:3400/api/delete/${id}`);
+            await axios.delete(`curd-backend-production.up.railway.app/api/delete/${id}`);
             getData(); // assuming this function fetches data from the server again
         } catch (error) {
             console.log(error);
@@ -67,7 +67,7 @@ export default function Curd() {
     const handleEdit = async (event) => {
         event.preventDefault();
         try {
-          await axios.put(`http://localhost:3400/api/update/${id}`, {
+          await axios.put(`curd-backend-production.up.railway.app/api/update/${id}`, {
             name: editName,
             email: editEmail,
           });
